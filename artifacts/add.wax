@@ -1,0 +1,103 @@
+builtin.module @add 
+{
+  ^block1v1():
+    builtin.func @add: builtin.function <(wax.ty tile<ptr<f32>>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<ptr<f32>>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<ptr<f32>>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>) -> ()> 
+      [sym_name: wax.attr str<"add_entry">, di_name: wax.attr str<"add">, function_type: wax.attr type<func<(tile<ptr<f32>>, tile<i32>, tile<i32>, tile<i32>, tile<i32>, tile<i32>, tile<i32>, tile<i32>, tile<i32>, tile<ptr<f32>>, tile<i32>, tile<i32>, tile<i32>, tile<i32>, tile<ptr<f32>>, tile<i32>, tile<i32>, tile<i32>, tile<i32>) -> ()>>, wax_entry: wax.attr bool<true>]
+    {
+      ^entry_block2v1(v0: wax.ty tile<ptr<f32>>, v1: wax.ty tile<i32>, v2: wax.ty tile<i32>, v3: wax.ty tile<i32>, v4: wax.ty tile<i32>, v5: wax.ty tile<i32>, v6: wax.ty tile<i32>, v7: wax.ty tile<i32>, v8: wax.ty tile<i32>, v9: wax.ty tile<ptr<f32>>, v10: wax.ty tile<i32>, v11: wax.ty tile<i32>, v12: wax.ty tile<i32>, v13: wax.ty tile<i32>, v14: wax.ty tile<ptr<f32>>, v15: wax.ty tile<i32>, v16: wax.ty tile<i32>, v17: wax.ty tile<i32>, v18: wax.ty tile<i32>):
+        v19 = wax.assume (v1) [] [predicate: wax.attr bounded<0, ?>]: <(wax.ty tile<i32>) -> (wax.ty tile<i32>)> !0;
+        v20 = wax.assume (v2) [] [predicate: wax.attr bounded<0, ?>]: <(wax.ty tile<i32>) -> (wax.ty tile<i32>)> !1;
+        v21 = wax.make_token () [] []: <() -> (wax.ty token)> !2;
+        v22 = wax.make_tensor_view (v0, v19, v20) [] [builtin_operand_segment_sizes: builtin.operand_segment_sizes [1, 2, 0]]: <(wax.ty tile<ptr<f32>>, wax.ty tile<i32>, wax.ty tile<i32>) -> (wax.ty tensor_view<?x?xf32, strides [256, 1]>)> !3;
+        v23 = wax.make_token () [] []: <() -> (wax.ty token)> !4;
+        v24 = wax.make_tensor_view (v9) [] [builtin_operand_segment_sizes: builtin.operand_segment_sizes [1, 0, 0]]: <(wax.ty tile<ptr<f32>>) -> (wax.ty tensor_view<1x256xf32, strides [256, 1]>)> !5;
+        v25 = wax.make_token () [] []: <() -> (wax.ty token)> !6;
+        v26 = wax.make_tensor_view (v14) [] [builtin_operand_segment_sizes: builtin.operand_segment_sizes [1, 0, 0]]: <(wax.ty tile<ptr<f32>>) -> (wax.ty tensor_view<1x256xf32, strides [256, 1]>)> !7;
+        v27 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !8;
+        v28 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !9;
+        v29 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !10;
+        v30 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !11;
+        v31 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !12;
+        v32 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !13;
+        v33 = wax.make_partition_view (v24) [] []: <(wax.ty tensor_view<1x256xf32, strides [256, 1]>) -> (wax.ty partition_view<[1, 256] of 1x256xf32, strides [256, 1], dim_map [0, 1], pad zero>)> !14;
+        v34 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !15;
+        v35 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !16;
+        v36 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !17;
+        v37 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !18;
+        v38, v39 = wax.load_view (v33, v34, v35, v23) [] [memory_ordering_semantics: wax.attr int<0 : i32>, builtin_operand_segment_sizes: builtin.operand_segment_sizes [1, 2, 1]]: <(wax.ty partition_view<[1, 256] of 1x256xf32, strides [256, 1], dim_map [0, 1], pad zero>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty token) -> (wax.ty tile<1x256xf32>, wax.ty token)> !19;
+        v40 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !20;
+        v41 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !21;
+        v42 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !22;
+        v43 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !23;
+        v44 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !24;
+        v45 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !25;
+        v46 = wax.make_partition_view (v26) [] []: <(wax.ty tensor_view<1x256xf32, strides [256, 1]>) -> (wax.ty partition_view<[1, 256] of 1x256xf32, strides [256, 1], dim_map [0, 1], pad zero>)> !26;
+        v47 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !27;
+        v48 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !28;
+        v49 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !29;
+        v50 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !30;
+        v51, v52 = wax.load_view (v46, v47, v48, v25) [] [memory_ordering_semantics: wax.attr int<0 : i32>, builtin_operand_segment_sizes: builtin.operand_segment_sizes [1, 2, 1]]: <(wax.ty partition_view<[1, 256] of 1x256xf32, strides [256, 1], dim_map [0, 1], pad zero>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty token) -> (wax.ty tile<1x256xf32>, wax.ty token)> !31;
+        v53 = wax.binary (v38, v51) [] [wax_op: wax.binary_op AddF, rounding_mode: wax.attr int<0 : i32>]: <(wax.ty tile<1x256xf32>, wax.ty tile<1x256xf32>) -> (wax.ty tile<1x256xf32>)> !32;
+        v54 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !33;
+        v55 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !34;
+        v56 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !35;
+        v57 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !36;
+        v58, v59, v60 = wax.tile_block_id () [] []: <() -> (wax.ty tile<i32>, wax.ty tile<i32>, wax.ty tile<i32>)> !37;
+        v61 = wax.assume (v58) [] [predicate: wax.attr bounded<0, ?>]: <(wax.ty tile<i32>) -> (wax.ty tile<i32>)> !38;
+        v62 = wax.assume (v59) [] [predicate: wax.attr bounded<0, ?>]: <(wax.ty tile<i32>) -> (wax.ty tile<i32>)> !39;
+        v63 = wax.assume (v60) [] [predicate: wax.attr bounded<0, ?>]: <(wax.ty tile<i32>) -> (wax.ty tile<i32>)> !40;
+        v64 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [1, 0, 0, 0]>]: <() -> (wax.ty tile<i32>)> !41;
+        v65 = wax.constant () [] [value: wax.attr dense<shape [], tile<i32>, data [0, 1, 0, 0]>]: <() -> (wax.ty tile<i32>)> !42;
+        v66 = wax.make_partition_view (v22) [] []: <(wax.ty tensor_view<?x?xf32, strides [256, 1]>) -> (wax.ty partition_view<[1, 256] of ?x?xf32, strides [256, 1], dim_map [0, 1]>)> !43;
+        v67 = wax.store_view (v53, v66, v61, v62, v21) [] [memory_ordering_semantics: wax.attr int<0 : i32>, builtin_operand_segment_sizes: builtin.operand_segment_sizes [1, 1, 2, 1]]: <(wax.ty tile<1x256xf32>, wax.ty partition_view<[1, 256] of ?x?xf32, strides [256, 1], dim_map [0, 1]>, wax.ty tile<i32>, wax.ty tile<i32>, wax.ty token) -> (wax.ty token)> !44;
+        wax.return () [] []: <() -> ()> !45
+    }
+}
+
+outlined_attributes:
+!0 = @["src/main.rs": line: 3, column: 0], []
+!1 = @["src/main.rs": line: 3, column: 0], []
+!2 = @["src/main.rs": line: 3, column: 0], []
+!3 = @["src/main.rs": line: 3, column: 0], []
+!4 = @["src/main.rs": line: 3, column: 0], []
+!5 = @["src/main.rs": line: 3, column: 0], []
+!6 = @["src/main.rs": line: 3, column: 0], []
+!7 = @["src/main.rs": line: 3, column: 0], []
+!8 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!9 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!10 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!11 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!12 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!13 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!14 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!15 = @[callsite("src/main.rs": line: 10, column: 40 at "src/main.rs": line: 3, column: 0)], []
+!16 = @[callsite("src/main.rs": line: 10, column: 46 at "src/main.rs": line: 3, column: 0)], []
+!17 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!18 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!19 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!20 = @[callsite("src/main.rs": line: 11, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!21 = @[callsite("src/main.rs": line: 11, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!22 = @[callsite("src/main.rs": line: 11, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!23 = @[callsite("src/main.rs": line: 11, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!24 = @[callsite("src/main.rs": line: 11, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!25 = @[callsite("src/main.rs": line: 11, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!26 = @[callsite("src/main.rs": line: 11, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!27 = @[callsite("src/main.rs": line: 11, column: 30 at "src/main.rs": line: 3, column: 0)], []
+!28 = @[callsite("src/main.rs": line: 11, column: 36 at "src/main.rs": line: 3, column: 0)], []
+!29 = @[callsite("src/main.rs": line: 11, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!30 = @[callsite("src/main.rs": line: 11, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!31 = @[callsite("src/main.rs": line: 11, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!32 = @[callsite("src/main.rs": line: 10, column: 18 at "src/main.rs": line: 3, column: 0)], []
+!33 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!34 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!35 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!36 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!37 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!38 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!39 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!40 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!41 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!42 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!43 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!44 = @[callsite("src/main.rs": line: 10, column: 8 at "src/main.rs": line: 3, column: 0)], []
+!45 = @["src/main.rs": line: 8, column: 4], []

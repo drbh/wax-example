@@ -1,0 +1,16 @@
+[package]
+name = "wax-example"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+anyhow = "1"
+candle-metal-kernels = { git = "https://github.com/huggingface/candle", branch = "wax" }
+cutile = { package = "cutile-dsl", git = "https://github.com/ivarflakstad/cutile-rs", branch = "dev" }
+objc2-metal = "0.3.2"
+pliron = "0.20"
+syn = { version = "2", features = ["full", "extra-traits"] }
+wax-frontend = { git = "https://github.com/huggingface/candle", branch = "wax" }
+wax-macro = { git = "https://github.com/huggingface/candle", branch = "wax" }
+wax-metal = { git = "https://github.com/huggingface/candle", branch = "wax" }
